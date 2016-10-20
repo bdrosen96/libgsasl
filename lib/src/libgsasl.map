@@ -58,6 +58,8 @@ LIBGSASL_1.1 {
     gsasl_step;
     gsasl_strerror;
     gsasl_strerror_name;
+    gsasl_get_qop;
+    gsasl_get_qop;
 
 # Old interfaces
     gsasl_appinfo_get;

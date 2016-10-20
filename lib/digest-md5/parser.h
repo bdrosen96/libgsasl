@@ -38,4 +38,6 @@ extern int digest_md5_parse_response (const char *response, size_t len,
 extern int digest_md5_parse_finish (const char *finish, size_t len,
 				    digest_md5_finish * out);
 
+int choose_cipher(int ciphers);
+
 #endif /* DIGEST_MD5_PARSER_H */

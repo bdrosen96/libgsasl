@@ -108,6 +108,25 @@ static const char *const cipher_opts[] = {
   NULL
 };
 
+int choose_cipher(int cipher) {
+    if (cipher & DIGEST_MD5_CIPHER_AES_CBC)
+        return DIGEST_MD5_CIPHER_AES_CBC;
+    else if (cipher & DIGEST_MD5_CIPHER_RC4)
+        return DIGEST_MD5_CIPHER_RC4;
+    else if (cipher & DIGEST_MD5_CIPHER_3DES)
+        return DIGEST_MD5_CIPHER_3DES;
+    else if (cipher & DIGEST_MD5_CIPHER_RC4_56)
+        return DIGEST_MD5_CIPHER_RC4_56;
+    else if (cipher & DIGEST_MD5_CIPHER_RC4_40)
+        return DIGEST_MD5_CIPHER_RC4_40;
+    else if (cipher & DIGEST_MD5_CIPHER_DES)
+        return DIGEST_MD5_CIPHER_DES;
+    else
+        return NULL;
+
+
+}
+
 static int
 parse_challenge (char *challenge, digest_md5_challenge * out)
 {

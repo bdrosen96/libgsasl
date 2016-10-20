@@ -85,6 +85,7 @@ _gsasl_digest_md5_client_start (Gsasl_session * sctx, void **mech_data)
 
   state->response.cnonce = p;
   state->response.nc = 1;
+  state->response.qop = DIGEST_MD5_QOP_AUTH | DIGEST_MD5_QOP_AUTH_INT | DIGEST_MD5_QOP_AUTH_CONF;
 
   *mech_data = state;
 
@@ -132,6 +133,7 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 
 	/* FIXME: cipher, maxbuf. */
 
+    state->response.cipher = choose_cipher(state->challenge.ciphers);
 	/* Create response token. */
 	state->response.utf8 = 1;
 
@@ -142,7 +144,7 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	  const char *qop = gsasl_property_get (sctx, GSASL_QOP);
 
 	  if (!qop)
-	    state->response.qop = GSASL_QOP_AUTH;
+	    state->response.qop = state->challenge.qops;
 	  else if (strcmp (qop, "qop-int") == 0)
 	    state->response.qop = GSASL_QOP_AUTH_INT;
 	  else if (strcmp (qop, "qop-auth") == 0)
@@ -151,6 +153,7 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	    /* We don't support confidentiality or unknown
 	       keywords. */
 	    return GSASL_AUTHENTICATION_ERROR;
+	  gsasl_set_qop(sctx, state->response.qop);
 	}
 
 	state->response.nonce = strdup (state->challenge.nonce);
@@ -218,7 +221,6 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	  memcpy (state->secret, tmp2, DIGEST_MD5_LENGTH);
 	  free (tmp2);
 	}
-
 	rc = digest_md5_hmac (state->response.response,
 			      state->secret,
 			      state->response.nonce,
@@ -301,7 +303,6 @@ _gsasl_digest_md5_client_encode (Gsasl_session * sctx,
 {
   _Gsasl_digest_md5_client_state *state = mech_data;
   int res;
-
   res = digest_md5_encode (input, input_len, output, output_len,
 			   state->response.qop,
 			   state->sendseqnum, state->kic);

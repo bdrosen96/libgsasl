@@ -64,7 +64,7 @@ _gsasl_gssapi_client_start (Gsasl_session * sctx, void **mech_data)
   state->context = GSS_C_NO_CONTEXT;
   state->service = GSS_C_NO_NAME;
   state->step = 0;
-  state->qop = GSASL_QOP_AUTH | GSASL_QOP_AUTH_CONF | GSASL_QOP_AUTH_INT;	/* FIXME: Should be GSASL_QOP_AUTH_CONF. */
+  state->qop = GSASL_QOP_AUTH | GSASL_QOP_AUTH_CONF | GSASL_QOP_AUTH_INT;
 
   *mech_data = state;
 
@@ -307,7 +307,6 @@ _gsasl_gssapi_client_encode (Gsasl_session * sctx,
 
   foo.length = input_len;
   foo.value = (void *) input;
-
   if (state && state->step == 3 &&
       state->qop & (GSASL_QOP_AUTH_INT | GSASL_QOP_AUTH_CONF))
     {
