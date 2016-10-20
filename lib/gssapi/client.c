@@ -87,6 +87,7 @@ _gsasl_gssapi_client_step (Gsasl_session * sctx,
   int conf_state;
   int res;
   const char *p;
+  int qop = 0;
 
   if (state->service == NULL)
     {
@@ -196,6 +197,7 @@ _gsasl_gssapi_client_step (Gsasl_session * sctx,
 	return GSASL_MECHANISM_PARSE_ERROR;
 
       memcpy (clientwrap, bufdesc2.value, 4);
+      qop = (int) ((char*)bufdesc2.value)[0];
 
       maj_stat = gss_release_buffer (&min_stat, &bufdesc2);
       if (GSS_ERROR (maj_stat))
@@ -217,13 +219,16 @@ _gsasl_gssapi_client_step (Gsasl_session * sctx,
       if (!p)
 	return GSASL_NO_AUTHID;
 
+
       bufdesc.length = 4 + strlen (p);
       bufdesc.value = malloc (bufdesc.length);
       if (!bufdesc.value)
 	return GSASL_MALLOC_ERROR;
 
       {
+
 	char *q = bufdesc.value;
+	state->qop = qop;
 	q[0] = state->qop;
 	memcpy (q + 1, clientwrap + 1, 3);
 	memcpy (q + 4, p, strlen (p));
