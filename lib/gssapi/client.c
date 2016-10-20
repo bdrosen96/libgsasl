@@ -91,7 +91,7 @@ _gsasl_gssapi_client_step (Gsasl_session * sctx,
 
   if (state->service == NULL)
     {
-      const char *service, *hostname;
+      const char *service, *hostname, *principal;
 
       service = gsasl_property_get (sctx, GSASL_SERVICE);
       if (!service)
@@ -101,26 +101,38 @@ _gsasl_gssapi_client_step (Gsasl_session * sctx,
       if (!hostname)
 	return GSASL_NO_HOSTNAME;
 
+	  principal = gsasl_property_get (sctx, GSASL_GSSAPI_DISPLAY_NAME);
       /* FIXME: Use asprintf. */
+      if (!principal) {
 
-      service = "hdfs.datarobot.com";
+          bufdesc.length = strlen (service) + 1 + strlen (hostname) + 1;
+          bufdesc.value = malloc (bufdesc.length);
+          if (bufdesc.value == NULL)
+                return GSASL_MALLOC_ERROR;
 
-      bufdesc.length = strlen (service) + 1 + strlen (hostname) + 1;
-      bufdesc.length = 2000;
-      bufdesc.value = malloc (bufdesc.length);
-      if (bufdesc.value == NULL)
-	return GSASL_MALLOC_ERROR;
+          sprintf (bufdesc.value, "%s@%s", service, hostname);
 
-      sprintf (bufdesc.value, "%s@%s", service, hostname);
-      sprintf (bufdesc.value, "%s", "hdfs/hdfs.datarobot.com@DATAROBOT.COM");
-      bufdesc.length = strlen(bufdesc.value) + 1;
+          maj_stat = gss_import_name (&min_stat, &bufdesc,
+                      GSS_C_NT_HOSTBASED_SERVICE,
+                      &state->service);
+          free (bufdesc.value);
+          if (GSS_ERROR (maj_stat))
+               return GSASL_GSSAPI_IMPORT_NAME_ERROR;
+     } else {
+          bufdesc.length = strlen (principal) + 1;
+          bufdesc.value = malloc (bufdesc.length);
+          if (bufdesc.value == NULL)
+                return GSASL_MALLOC_ERROR;
 
-      maj_stat = gss_import_name (&min_stat, &bufdesc,
-				  GSS_C_NT_USER_NAME,
-				  &state->service);
-      free (bufdesc.value);
-      if (GSS_ERROR (maj_stat))
-	return GSASL_GSSAPI_IMPORT_NAME_ERROR;
+          sprintf (bufdesc.value, "%s", principal);
+
+          maj_stat = gss_import_name (&min_stat, &bufdesc,
+                      GSS_C_NT_USER_NAME,
+                      &state->service);
+          free (bufdesc.value);
+          if (GSS_ERROR (maj_stat))
+               return GSASL_GSSAPI_IMPORT_NAME_ERROR;
+     }
     }
 
   switch (state->step)
