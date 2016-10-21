@@ -131,14 +131,6 @@ map (Gsasl_session * sctx, Gsasl_property prop)
   return p;
 }
 
-void gsasl_set_qop (Gsasl_session * sctx, int qop) {
-    sctx->qop = qop;
-}
-
-int gsasl_get_qop (Gsasl_session * sctx) {
-    return sctx->qop;
-}
-
 /**
  * gsasl_property_set:
  * @sctx: session handle.
