@@ -409,8 +409,6 @@ extern "C"
 						void *hook);
   extern GSASL_API void *gsasl_session_hook_get (Gsasl_session * sctx);
 
-  extern GSASL_API void gsasl_set_qop (Gsasl_session * sctx, int qop);
-  extern GSASL_API int gsasl_get_qop (Gsasl_session * sctx);
 
   /* Property handling: property.c */
   extern GSASL_API void gsasl_property_set (Gsasl_session * sctx,
