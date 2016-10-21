@@ -173,10 +173,10 @@ digest_md5_encode (_Gsasl_digest_md5_encrypt_state *state,
         for (i=0; i < padding; i++)
             pad[i] = padding;
       }
-      to_encrypt = malloc(len+padding+MAC_HMAC_LEN);
+      to_encrypt = malloc(input_len+padding+MAC_HMAC_LEN);
       if (to_encrypt == NULL)
     	return -1;
-      encrypted = malloc(len+padding+MAC_HMAC_LEN);
+      encrypted = malloc(input_len+padding+MAC_HMAC_LEN);
       if (encrypted == NULL) {
         free(to_encrypt);
     	return -1;

@@ -153,6 +153,8 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	    state->response.qop = GSASL_QOP_AUTH_INT;
 	  else if (strcmp (qop, "qop-auth") == 0)
 	    state->response.qop = GSASL_QOP_AUTH;
+	  else if (strcmp (qop, "qop-conf") == 0)
+	    state->response.qop = GSASL_QOP_AUTH_CONF;
 	  else
 	    /* We don't support confidentiality or unknown
 	       keywords. */
@@ -272,12 +274,12 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 
 	if (strcmp (state->finish.rspauth, check) == 0) {
 	    res = GSASL_OK;
-	    if (state->response.qop == GSASL_QOP_AUTH_INT) {
+	    if (state->response.qop == GSASL_QOP_AUTH_CONF) {
           memcpy(state->encrypt_state.kcc, state->kcc, DIGEST_MD5_LENGTH);
           memcpy(state->encrypt_state.kcs, state->kcs, DIGEST_MD5_LENGTH);
           state->encrypt_state.cipher = state->response.cipher;
           state->encrypt_state.client = 1;
-          if (digest_md5_init(&state->encrypt_state) < 0)
+          if (digest_md5_crypt_init(&state->encrypt_state) < 0)
             res = GSASL_INTEGRITY_ERROR;
         }
 	 }
