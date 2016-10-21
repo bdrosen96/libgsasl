@@ -142,6 +142,7 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 
 	{
 	  const char *qop = gsasl_property_get (sctx, GSASL_QOP);
+	  char dummy[2];
 
 	  if (!qop)
 	    state->response.qop = state->challenge.qops;
@@ -153,7 +154,10 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	    /* We don't support confidentiality or unknown
 	       keywords. */
 	    return GSASL_AUTHENTICATION_ERROR;
-	  gsasl_set_qop(sctx, state->response.qop);
+
+        dummy[0] = state->response.qop;
+        dummy[1] = 0;
+	    gsasl_property_set_raw (sctx, GSASL_QOP, dummy, 1);
 	}
 
 	state->response.nonce = strdup (state->challenge.nonce);
