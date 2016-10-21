@@ -43,6 +43,7 @@
 #include "digesthmac.h"
 #include "qop.h"
 
+
 #define CNONCE_ENTROPY_BYTES 16
 
 struct _Gsasl_digest_md5_client_state
@@ -57,6 +58,8 @@ struct _Gsasl_digest_md5_client_state
   digest_md5_challenge challenge;
   digest_md5_response response;
   digest_md5_finish finish;
+
+  _Gsasl_digest_md5_encrypt_state encrypt_state;
 };
 typedef struct _Gsasl_digest_md5_client_state _Gsasl_digest_md5_client_state;
 
@@ -86,7 +89,7 @@ _gsasl_digest_md5_client_start (Gsasl_session * sctx, void **mech_data)
   state->response.cnonce = p;
   state->response.nc = 1;
   state->response.qop = DIGEST_MD5_QOP_AUTH | DIGEST_MD5_QOP_AUTH_INT | DIGEST_MD5_QOP_AUTH_CONF;
-
+  state->encrypt_state.cipher = 0;
   *mech_data = state;
 
   return GSASL_OK;
@@ -267,8 +270,17 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	if (res != GSASL_OK)
 	  break;
 
-	if (strcmp (state->finish.rspauth, check) == 0)
-	  res = GSASL_OK;
+	if (strcmp (state->finish.rspauth, check) == 0) {
+	    res = GSASL_OK;
+	    if (state->response.qop == GSASL_QOP_AUTH_INT) {
+          memcpy(state->encrypt_state.kcc, state->kcc, DIGEST_MD5_LENGTH);
+          memcpy(state->encrypt_state.kcs, state->kcs, DIGEST_MD5_LENGTH);
+          state->encrypt_state.cipher = state->response.cipher;
+          state->encrypt_state.client = 1;
+          if (digest_md5_init(&state->encrypt_state) < 0)
+            res = GSASL_INTEGRITY_ERROR;
+        }
+	 }
 	else
 	  res = GSASL_AUTHENTICATION_ERROR;
 	state->step++;
@@ -295,6 +307,8 @@ _gsasl_digest_md5_client_finish (Gsasl_session * sctx, void *mech_data)
   digest_md5_free_response (&state->response);
   digest_md5_free_finish (&state->finish);
 
+  if (state->encrypt_state.cipher)
+    digest_md5_crypt_cleanup(&state->encrypt_state);
   free (state);
 }
 
@@ -307,7 +321,8 @@ _gsasl_digest_md5_client_encode (Gsasl_session * sctx,
 {
   _Gsasl_digest_md5_client_state *state = mech_data;
   int res;
-  res = digest_md5_encode (input, input_len, output, output_len,
+  res = digest_md5_encode (&state->encrypt_state,
+               input, input_len, output, output_len,
 			   state->response.qop,
 			   state->sendseqnum, state->kic);
   if (res)
@@ -331,7 +346,8 @@ _gsasl_digest_md5_client_decode (Gsasl_session * sctx,
   _Gsasl_digest_md5_client_state *state = mech_data;
   int res;
 
-  res = digest_md5_decode (input, input_len, output, output_len,
+  res = digest_md5_decode (&state->encrypt_state,
+               input, input_len, output, output_len,
 			   state->response.qop,
 			   state->readseqnum, state->kis);
   if (res)

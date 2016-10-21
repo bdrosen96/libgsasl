@@ -58,6 +58,8 @@ struct _Gsasl_digest_md5_server_state
   digest_md5_challenge challenge;
   digest_md5_response response;
   digest_md5_finish finish;
+
+  _Gsasl_digest_md5_encrypt_state encrypt_state;
 };
 typedef struct _Gsasl_digest_md5_server_state _Gsasl_digest_md5_server_state;
 
@@ -357,7 +359,8 @@ _gsasl_digest_md5_server_encode (Gsasl_session * sctx,
   _Gsasl_digest_md5_server_state *state = mech_data;
   int res;
 
-  res = digest_md5_encode (input, input_len, output, output_len,
+  res = digest_md5_encode (&state->encrypt_state,
+               input, input_len, output, output_len,
 			   state->response.qop, state->sendseqnum,
 			   state->kis);
   if (res)
@@ -381,7 +384,8 @@ _gsasl_digest_md5_server_decode (Gsasl_session * sctx,
   _Gsasl_digest_md5_server_state *state = mech_data;
   int res;
 
-  res = digest_md5_decode (input, input_len, output, output_len,
+  res = digest_md5_decode (&state->encrypt_state,
+               input, input_len, output, output_len,
 			   state->response.qop, state->readseqnum,
 			   state->kic);
   if (res)
