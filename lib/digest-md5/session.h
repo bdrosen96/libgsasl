@@ -32,6 +32,8 @@
 
 struct _Gsasl_digest_md5_encrypt_state
 {
+  char kic[DIGEST_MD5_LENGTH];
+  char kis[DIGEST_MD5_LENGTH];
   char kcc[DIGEST_MD5_LENGTH];
   char kcs[DIGEST_MD5_LENGTH];
   int cipher;
