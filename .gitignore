@@ -510,7 +510,6 @@ lib/anonymous/server.lo
 lib/anonymous/server.o
 lib/autom4te.cache/
 lib/build-aux/config.guess
-lib/build-aux/config.sub
 lib/config.h
 lib/config.h.in
 lib/config.log
