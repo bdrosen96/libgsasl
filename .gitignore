@@ -14,7 +14,6 @@ config.h
 config.h.in
 config.log
 config.status
-configure
 doc/.deps/
 doc/.libs/
 doc/Makefile
@@ -523,7 +522,6 @@ lib/config.h
 lib/config.h.in
 lib/config.log
 lib/config.status
-lib/configure
 lib/cram-md5/.deps/
 lib/cram-md5/.libs/
 lib/cram-md5/Makefile
