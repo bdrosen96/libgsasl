@@ -26,13 +26,45 @@
 /* Get token types. */
 #include "tokens.h"
 
-extern int digest_md5_encode (const char *input, size_t input_len,
+#include <openssl/des.h>
+#include <openssl/opensslv.h>
+#include <openssl/rc4.h>
+
+struct _Gsasl_digest_md5_encrypt_state
+{
+  char kic[DIGEST_MD5_LENGTH];
+  char kis[DIGEST_MD5_LENGTH];
+  char kcc[DIGEST_MD5_LENGTH];
+  char kcs[DIGEST_MD5_LENGTH];
+  int cipher;
+  int client;
+
+  RC4_KEY rc4_key_encrypt;
+  RC4_KEY rc4_key_decrypt;
+
+  des_key_schedule keysched_encrypt;  /* key schedule for des initialization */
+  des_cblock ivec_encrypt;            /* initial vector for encoding */
+  des_key_schedule keysched2_encrypt; /* key schedule for 3des initialization */
+
+  des_key_schedule keysched_decrypt;  /* key schedule for des initialization */
+  des_cblock ivec_decrypt;            /* initial vector for encoding */
+  des_key_schedule keysched2_decrypt; /* key schedule for 3des initialization */
+};
+
+typedef struct _Gsasl_digest_md5_encrypt_state _Gsasl_digest_md5_encrypt_state;
+
+extern int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state);
+extern int digest_md5_crypt_cleanup(_Gsasl_digest_md5_encrypt_state *state);
+
+extern int digest_md5_encode (_Gsasl_digest_md5_encrypt_state *state,
+                  const char *input, size_t input_len,
 			      char **output, size_t * output_len,
 			      digest_md5_qop qop,
 			      unsigned long sendseqnum,
 			      char key[DIGEST_MD5_LENGTH]);
 
-extern int digest_md5_decode (const char *input, size_t input_len,
+extern int digest_md5_decode (_Gsasl_digest_md5_encrypt_state *state,
+                  const char *input, size_t input_len,
 			      char **output, size_t * output_len,
 			      digest_md5_qop qop,
 			      unsigned long readseqnum,

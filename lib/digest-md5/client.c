@@ -43,6 +43,7 @@
 #include "digesthmac.h"
 #include "qop.h"
 
+
 #define CNONCE_ENTROPY_BYTES 16
 
 struct _Gsasl_digest_md5_client_state
@@ -57,6 +58,8 @@ struct _Gsasl_digest_md5_client_state
   digest_md5_challenge challenge;
   digest_md5_response response;
   digest_md5_finish finish;
+
+  _Gsasl_digest_md5_encrypt_state encrypt_state;
 };
 typedef struct _Gsasl_digest_md5_client_state _Gsasl_digest_md5_client_state;
 
@@ -85,7 +88,8 @@ _gsasl_digest_md5_client_start (Gsasl_session * sctx, void **mech_data)
 
   state->response.cnonce = p;
   state->response.nc = 1;
-
+  state->response.qop = DIGEST_MD5_QOP_AUTH | DIGEST_MD5_QOP_AUTH_INT | DIGEST_MD5_QOP_AUTH_CONF;
+  state->encrypt_state.cipher = 0;
   *mech_data = state;
 
   return GSASL_OK;
@@ -132,6 +136,7 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 
 	/* FIXME: cipher, maxbuf. */
 
+    state->response.cipher = choose_cipher(state->challenge.ciphers);
 	/* Create response token. */
 	state->response.utf8 = 1;
 
@@ -140,17 +145,24 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 
 	{
 	  const char *qop = gsasl_property_get (sctx, GSASL_QOP);
+	  char dummy[2];
 
 	  if (!qop)
-	    state->response.qop = GSASL_QOP_AUTH;
+	    state->response.qop = state->challenge.qops;
 	  else if (strcmp (qop, "qop-int") == 0)
 	    state->response.qop = GSASL_QOP_AUTH_INT;
 	  else if (strcmp (qop, "qop-auth") == 0)
 	    state->response.qop = GSASL_QOP_AUTH;
+	  else if (strcmp (qop, "qop-conf") == 0)
+	    state->response.qop = GSASL_QOP_AUTH_CONF;
 	  else
 	    /* We don't support confidentiality or unknown
 	       keywords. */
 	    return GSASL_AUTHENTICATION_ERROR;
+
+        dummy[0] = state->response.qop;
+        dummy[1] = 0;
+	    gsasl_property_set_raw (sctx, GSASL_QOP, dummy, 1);
 	}
 
 	state->response.nonce = strdup (state->challenge.nonce);
@@ -218,7 +230,6 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	  memcpy (state->secret, tmp2, DIGEST_MD5_LENGTH);
 	  free (tmp2);
 	}
-
 	rc = digest_md5_hmac (state->response.response,
 			      state->secret,
 			      state->response.nonce,
@@ -261,8 +272,19 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	if (res != GSASL_OK)
 	  break;
 
-	if (strcmp (state->finish.rspauth, check) == 0)
-	  res = GSASL_OK;
+	if (strcmp (state->finish.rspauth, check) == 0) {
+	    res = GSASL_OK;
+	    if (state->response.qop == GSASL_QOP_AUTH_CONF) {
+          memcpy(state->encrypt_state.kcc, state->kcc, DIGEST_MD5_LENGTH);
+          memcpy(state->encrypt_state.kcs, state->kcs, DIGEST_MD5_LENGTH);
+          memcpy(state->encrypt_state.kic, state->kic, DIGEST_MD5_LENGTH);
+          memcpy(state->encrypt_state.kis, state->kis, DIGEST_MD5_LENGTH);
+          state->encrypt_state.cipher = state->response.cipher;
+          state->encrypt_state.client = 1;
+          if (digest_md5_crypt_init(&state->encrypt_state) < 0)
+            res = GSASL_INTEGRITY_ERROR;
+        }
+	 }
 	else
 	  res = GSASL_AUTHENTICATION_ERROR;
 	state->step++;
@@ -289,6 +311,8 @@ _gsasl_digest_md5_client_finish (Gsasl_session * sctx, void *mech_data)
   digest_md5_free_response (&state->response);
   digest_md5_free_finish (&state->finish);
 
+  if (state->encrypt_state.cipher)
+    digest_md5_crypt_cleanup(&state->encrypt_state);
   free (state);
 }
 
@@ -301,8 +325,8 @@ _gsasl_digest_md5_client_encode (Gsasl_session * sctx,
 {
   _Gsasl_digest_md5_client_state *state = mech_data;
   int res;
-
-  res = digest_md5_encode (input, input_len, output, output_len,
+  res = digest_md5_encode (&state->encrypt_state,
+               input, input_len, output, output_len,
 			   state->response.qop,
 			   state->sendseqnum, state->kic);
   if (res)
@@ -326,7 +350,8 @@ _gsasl_digest_md5_client_decode (Gsasl_session * sctx,
   _Gsasl_digest_md5_client_state *state = mech_data;
   int res;
 
-  res = digest_md5_decode (input, input_len, output, output_len,
+  res = digest_md5_decode (&state->encrypt_state,
+               input, input_len, output, output_len,
 			   state->response.qop,
 			   state->readseqnum, state->kis);
   if (res)
