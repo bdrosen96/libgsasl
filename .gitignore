@@ -495,12 +495,10 @@ lib/ABOUT-NLS
 lib/ChangeLog
 lib/INSTALL
 lib/Makefile
-lib/Makefile.in
 lib/aclocal.m4
 lib/anonymous/.deps/
 lib/anonymous/.libs/
 lib/anonymous/Makefile
-lib/anonymous/Makefile.in
 lib/anonymous/client.lo
 lib/anonymous/client.o
 lib/anonymous/libgsasl-anonymous.la
@@ -516,7 +514,6 @@ lib/config.status
 lib/cram-md5/.deps/
 lib/cram-md5/.libs/
 lib/cram-md5/Makefile
-lib/cram-md5/Makefile.in
 lib/cram-md5/challenge.lo
 lib/cram-md5/challenge.o
 lib/cram-md5/client.lo
@@ -531,7 +528,6 @@ lib/cram-md5/server.o
 lib/digest-md5/.deps/
 lib/digest-md5/.libs/
 lib/digest-md5/Makefile
-lib/digest-md5/Makefile.in
 lib/digest-md5/client.lo
 lib/digest-md5/client.o
 lib/digest-md5/digesthmac.lo
@@ -562,7 +558,6 @@ lib/digest-md5/validate.o
 lib/external/.deps/
 lib/external/.libs/
 lib/external/Makefile
-lib/external/Makefile.in
 lib/external/client.lo
 lib/external/client.o
 lib/external/libgsasl-external.la
@@ -573,7 +568,6 @@ lib/external/server.o
 lib/gl/.deps/
 lib/gl/.libs/
 lib/gl/Makefile
-lib/gl/Makefile.in
 lib/gl/alloca.h
 lib/gl/arg-nonnull.h
 lib/gl/asnprintf.lo
@@ -618,7 +612,6 @@ lib/gl/warn-on-use.h
 lib/gl/wchar.h
 lib/gltests/.deps/
 lib/gltests/Makefile
-lib/gltests/Makefile.in
 lib/gltests/arg-nonnull.h
 lib/gltests/c++defs.h
 lib/gltests/dummy.o
@@ -711,7 +704,6 @@ lib/gltests/warn-on-use.h
 lib/gs2/.deps/
 lib/gs2/.libs/
 lib/gs2/Makefile
-lib/gs2/Makefile.in
 lib/gs2/client.lo
 lib/gs2/client.o
 lib/gs2/gs2asn1.lo
@@ -726,7 +718,6 @@ lib/gs2/server.o
 lib/gssapi/.deps/
 lib/gssapi/.libs/
 lib/gssapi/Makefile
-lib/gssapi/Makefile.in
 lib/gssapi/client.lo
 lib/gssapi/client.o
 lib/gssapi/libgsasl-gssapi.la
@@ -736,14 +727,12 @@ lib/gssapi/server.lo
 lib/gssapi/server.o
 lib/kerberos_v5/.deps/
 lib/kerberos_v5/Makefile
-lib/kerberos_v5/Makefile.in
 lib/libgsasl-*.tar.gz*
 lib/libgsasl.pc
 lib/libtool
 lib/login/.deps/
 lib/login/.libs/
 lib/login/Makefile
-lib/login/Makefile.in
 lib/login/client.lo
 lib/login/client.o
 lib/login/libgsasl-login.la
@@ -790,7 +779,6 @@ lib/m4/xsize.m4
 lib/ntlm/.deps/
 lib/ntlm/.libs/
 lib/ntlm/Makefile
-lib/ntlm/Makefile.in
 lib/ntlm/libgsasl-ntlm.la
 lib/ntlm/mechinfo.lo
 lib/ntlm/mechinfo.o
@@ -808,7 +796,6 @@ lib/openid20/server.o
 lib/plain/.deps/
 lib/plain/.libs/
 lib/plain/Makefile
-lib/plain/Makefile.in
 lib/plain/client.lo
 lib/plain/client.o
 lib/plain/libgsasl-plain.la
@@ -819,8 +806,6 @@ lib/plain/server.o
 lib/po/*.gmo
 lib/po/*.po
 lib/po/Makefile
-lib/po/Makefile.in
-lib/po/Makefile.in.in
 lib/po/Makevars.template
 lib/po/POTFILES
 lib/po/Rules-quot
@@ -838,7 +823,6 @@ lib/po/stamp-po
 lib/saml20/.deps/
 lib/saml20/.libs/
 lib/saml20/Makefile
-lib/saml20/Makefile.in
 lib/saml20/client.lo
 lib/saml20/client.o
 lib/saml20/libgsasl-saml20.la
@@ -849,7 +833,6 @@ lib/saml20/server.o
 lib/scram/.deps/
 lib/scram/.libs/
 lib/scram/Makefile
-lib/scram/Makefile.in
 lib/scram/client.lo
 lib/scram/client.o
 lib/scram/libgsasl-scram.la
@@ -868,7 +851,6 @@ lib/scram/validate.o
 lib/securid/.deps/
 lib/securid/.libs/
 lib/securid/Makefile
-lib/securid/Makefile.in
 lib/securid/client.lo
 lib/securid/client.o
 lib/securid/libgsasl-securid.la
@@ -879,7 +861,6 @@ lib/securid/server.o
 lib/src/.deps/
 lib/src/.libs/
 lib/src/Makefile
-lib/src/Makefile.in
 lib/src/base64.lo
 lib/src/base64.o
 lib/src/callback.lo
@@ -928,7 +909,6 @@ lib/src/xstep.o
 lib/stamp-h1
 lib/tests/.deps/
 lib/tests/Makefile
-lib/tests/Makefile.in
 lib/tests/test-error
 lib/tests/test-error.o
 libtool
