@@ -800,14 +800,7 @@ lib/po/Makefile
 lib/po/Makevars.template
 lib/po/POTFILES
 lib/po/Rules-quot
-lib/po/boldquot.sed
-lib/po/en@boldquot.header
-lib/po/en@boldquot.insert-header
-lib/po/en@quot.header
-lib/po/en@quot.insert-header
-lib/po/insert-header.sin
 lib/po/libgsasl.pot
-lib/po/quot.sed
 lib/po/stamp-po
 lib/saml20/.deps/
 lib/saml20/.libs/
