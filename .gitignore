@@ -2,9 +2,6 @@
 *.gcno
 *.gcov
 *~
-ABOUT-NLS
-ChangeLog
-INSTALL
 Makefile
 TAGS
 aclocal.m4
@@ -489,9 +486,6 @@ gltests/unused-parameter.h
 gltests/version-etc-fsf.o
 gltests/warn-on-use.h
 gsasl-*.tar.gz*
-lib/ABOUT-NLS
-lib/ChangeLog
-lib/INSTALL
 lib/Makefile
 lib/aclocal.m4
 lib/anonymous/.deps/
