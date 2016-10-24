@@ -509,15 +509,8 @@ lib/anonymous/mechinfo.o
 lib/anonymous/server.lo
 lib/anonymous/server.o
 lib/autom4te.cache/
-lib/build-aux/compile
 lib/build-aux/config.guess
 lib/build-aux/config.sub
-lib/build-aux/depcomp
-lib/build-aux/install-sh
-lib/build-aux/ltmain.sh
-lib/build-aux/mdate-sh
-lib/build-aux/missing
-lib/build-aux/texinfo.tex
 lib/config.h
 lib/config.h.in
 lib/config.log
