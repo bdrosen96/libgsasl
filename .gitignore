@@ -795,13 +795,7 @@ lib/plain/mechinfo.o
 lib/plain/server.lo
 lib/plain/server.o
 lib/po/*.gmo
-lib/po/*.po
 lib/po/Makefile
-lib/po/Makevars.template
-lib/po/POTFILES
-lib/po/Rules-quot
-lib/po/libgsasl.pot
-lib/po/stamp-po
 lib/saml20/.deps/
 lib/saml20/.libs/
 lib/saml20/Makefile
