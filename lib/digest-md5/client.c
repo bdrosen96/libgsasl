@@ -277,6 +277,8 @@ _gsasl_digest_md5_client_step (Gsasl_session * sctx,
 	    if (state->response.qop == GSASL_QOP_AUTH_CONF) {
           memcpy(state->encrypt_state.kcc, state->kcc, DIGEST_MD5_LENGTH);
           memcpy(state->encrypt_state.kcs, state->kcs, DIGEST_MD5_LENGTH);
+          memcpy(state->encrypt_state.kic, state->kic, DIGEST_MD5_LENGTH);
+          memcpy(state->encrypt_state.kis, state->kis, DIGEST_MD5_LENGTH);
           state->encrypt_state.cipher = state->response.cipher;
           state->encrypt_state.client = 1;
           if (digest_md5_crypt_init(&state->encrypt_state) < 0)
