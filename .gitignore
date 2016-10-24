@@ -10,7 +10,6 @@ TAGS
 aclocal.m4
 autom4te.cache/
 config.h
-config.h.in
 config.log
 config.status
 doc/.deps/
@@ -507,7 +506,6 @@ lib/anonymous/server.lo
 lib/anonymous/server.o
 lib/autom4te.cache/
 lib/config.h
-lib/config.h.in
 lib/config.log
 lib/config.status
 lib/cram-md5/.deps/
