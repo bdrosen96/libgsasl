@@ -44,6 +44,18 @@
 #define MAC_MSG_TYPE_LEN 2
 #define MAC_SEQNUM_LEN 4
 
+static void slidebits(unsigned char *keybuf, unsigned char *inbuf)
+{
+    keybuf[0] = inbuf[0];
+    keybuf[1] = (inbuf[0]<<7) | (inbuf[1]>>1);
+    keybuf[2] = (inbuf[1]<<6) | (inbuf[2]>>2);
+    keybuf[3] = (inbuf[2]<<5) | (inbuf[3]>>3);
+    keybuf[4] = (inbuf[3]<<4) | (inbuf[4]>>4);
+    keybuf[5] = (inbuf[4]<<3) | (inbuf[5]>>5);
+    keybuf[6] = (inbuf[5]<<2) | (inbuf[6]>>6);
+    keybuf[7] = (inbuf[6]<<1);
+}
+
 int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
 {
 
@@ -67,7 +79,40 @@ int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
             RC4_set_key(&state->rc4_key_encrypt, DIGEST_MD5_LENGTH, my_key);
             RC4_set_key(&state->rc4_key_decrypt, DIGEST_MD5_LENGTH, peer_key);
          } else if (state->cipher == DIGEST_MD5_CIPHER_3DES) {
+            unsigned char keybuf[8];
+            slidebits(keybuf, my_key);
+
+            des_key_sched((des_cblock *) keybuf, state->keysched_encrypt);
+
+            slidebits(keybuf, my_key + 7);
+
+            des_key_sched((des_cblock *) keybuf, state->keysched2_encrypt);
+            memcpy(state->ivec_encrypt, ((char *) my_key) + 8, 8);
+
+            slidebits(keybuf, peer_key);
+            des_key_sched((des_cblock *) keybuf, state->keysched_decrypt);
+
+            slidebits(keybuf, peer_key + 7);
+
+            des_key_sched((des_cblock *) keybuf, state->keysched2_decrypt);
+
+
+            memcpy(state->ivec_decrypt, ((char *) peer_key) + 8, 8);
+
+
          } else if (state->cipher == DIGEST_MD5_CIPHER_DES) {
+
+            unsigned char keybuf[8];
+            slidebits(keybuf, my_key);
+
+            des_key_sched((des_cblock *) keybuf, state->keysched_encrypt);
+
+            memcpy(state->ivec_encrypt, ((char *) my_key) + 8, 8);
+
+            slidebits(keybuf, peer_key);
+            des_key_sched((des_cblock *) keybuf, state->keysched_decrypt);
+
+            memcpy(state->ivec_decrypt, ((char *) peer_key) + 8, 8);
          }
 
     } else {
@@ -129,6 +174,7 @@ void do_decrypt(_Gsasl_digest_md5_encrypt_state *state, const char* to_decrypt, 
      }
 }
 
+
 int
 digest_md5_encode (_Gsasl_digest_md5_encrypt_state *state,
            const char *input, size_t input_len,
@@ -148,6 +194,7 @@ digest_md5_encode (_Gsasl_digest_md5_encrypt_state *state,
       size_t len;
       char *to_encrypt;
       char *encrypted;
+      char *my_key=NULL;
       if (!state->cipher)
           return -1;
 
@@ -161,7 +208,11 @@ digest_md5_encode (_Gsasl_digest_md5_encrypt_state *state,
       seqnumin[3] = sendseqnum & 0xFF;
       memcpy (seqnumin + MAC_SEQNUM_LEN, input, input_len);
 
-      res = gc_hmac_md5 (key, MD5LEN,
+      if (state->client)
+         my_key = state->kic;
+      else
+        my_key = state->kis;
+      res = gc_hmac_md5 (my_key, MD5LEN,
 			 seqnumin, MAC_SEQNUM_LEN + input_len, hash);
       free (seqnumin);
       if (res)
@@ -189,7 +240,7 @@ digest_md5_encode (_Gsasl_digest_md5_encrypt_state *state,
       // Do encrypt
       free(to_encrypt);
 
-	  *output_len = MAC_DATA_LEN + input_len + padding +
+	  *output_len = MAC_DATA_LEN + encrypt_length  +
 	    MAC_MSG_TYPE_LEN + MAC_SEQNUM_LEN;
 	  *output = malloc (*output_len);
       if (!*output) {
@@ -294,6 +345,7 @@ digest_md5_decode (_Gsasl_digest_md5_encrypt_state *state,
       char *decrypted;
       int encrypted_length;
       int res;
+      char *my_key=NULL;
       if (!state->cipher)
           return -1;
 
@@ -305,6 +357,10 @@ digest_md5_decode (_Gsasl_digest_md5_encrypt_state *state,
       if (input_len < SASL_INTEGRITY_PREFIX_LENGTH + len)
 	    return -2;
 
+      if (state->client)
+         my_key = state->kis;
+      else
+         my_key = state->kic;
       memcpy(msgType, input+input_len-MAC_SEQNUM_LEN-MAC_MSG_TYPE_LEN, MAC_MSG_TYPE_LEN);
       memcpy(seqNum, input+input_len-MAC_SEQNUM_LEN, MAC_SEQNUM_LEN);
 
@@ -313,15 +369,16 @@ digest_md5_decode (_Gsasl_digest_md5_encrypt_state *state,
       if (encrypted == NULL)
         return -1;
       decrypted = malloc(encrypted_length);
-      if (decrypted == NULL)
+      if (decrypted == NULL) {
         free(encrypted);
         return -1;
+      }
       memcpy(encrypted, input+MAC_DATA_LEN, encrypted_length);
 
       do_decrypt(state, encrypted, encrypted_length, decrypted);
       free(encrypted);
-      memcpy(originalHash, decrypted+encrypted_length-GC_MD5_DIGEST_SIZE, GC_MD5_DIGEST_SIZE);
-      encrypted_length -= GC_MD5_DIGEST_SIZE;
+      memcpy(originalHash, decrypted+encrypted_length-MAC_HMAC_LEN, MAC_HMAC_LEN);
+      encrypted_length -= MAC_HMAC_LEN;
       if (state->cipher == DIGEST_MD5_CIPHER_3DES || state->cipher == DIGEST_MD5_CIPHER_DES) {
         encrypted_length -= decrypted[encrypted_length-1];
       }
@@ -340,7 +397,7 @@ digest_md5_decode (_Gsasl_digest_md5_encrypt_state *state,
       memcpy (seqnumin + MAC_SEQNUM_LEN,
 	      decrypted, encrypted_length);
 
-      res = gc_hmac_md5 (key, MD5LEN, seqnumin, MAC_SEQNUM_LEN + len, hash);
+      res = gc_hmac_md5 (my_key, MD5LEN, seqnumin, MAC_SEQNUM_LEN + encrypted_length, hash);
       free (seqnumin);
       if (res) {
         free(decrypted);
