@@ -117,14 +117,14 @@ int choose_cipher(int cipher) {
     */
     if (cipher & DIGEST_MD5_CIPHER_RC4)
         return DIGEST_MD5_CIPHER_RC4;
-    //if (cipher & DIGEST_MD5_CIPHER_3DES)
-    //    return DIGEST_MD5_CIPHER_3DES;
+    if (cipher & DIGEST_MD5_CIPHER_3DES)
+        return DIGEST_MD5_CIPHER_3DES;
     if (cipher & DIGEST_MD5_CIPHER_RC4_56)
         return DIGEST_MD5_CIPHER_RC4_56;
     if (cipher & DIGEST_MD5_CIPHER_RC4_40)
         return DIGEST_MD5_CIPHER_RC4_40;
-    //if (cipher & DIGEST_MD5_CIPHER_DES)
-    //    return DIGEST_MD5_CIPHER_DES;
+    if (cipher & DIGEST_MD5_CIPHER_DES)
+        return DIGEST_MD5_CIPHER_DES;
     else
         return 0;
 
