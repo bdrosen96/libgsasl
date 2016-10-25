@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgsasl 1.7.4\n"
 "Report-Msgid-Bugs-To: bug-gsasl@gnu.org\n"
-"POT-Creation-Date: 2012-05-16 00:55+0200\n"
+"POT-Creation-Date: 2016-10-25 07:08-0400\n"
 "PO-Revision-Date: 2012-05-18 20:25-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -57,72 +57,139 @@ msgid "Low-level crypto error in SASL library"
 msgstr "Malalt-nivela ĉifra eraro en biblioteko SASL"
 
 #: src/error.c:60
-msgid "SASL mechanism needs gsasl_client_callback_anonymous() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_anonymous() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_anonymous() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_anonymous() "
+"(aplikaĵa eraro)"
 
 #: src/error.c:63
-msgid "SASL mechanism needs gsasl_client_callback_password() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_password() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_password() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_password() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:66
-msgid "SASL mechanism needs gsasl_client_callback_passcode() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_passcode() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_passcode() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_passcode() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:69
-msgid "SASL mechanism needs gsasl_client_callback_pin() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_pin() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_pin() callback (application error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_pin() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:72
-msgid "SASL mechanism needs gsasl_client_callback_authorization_id() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_authorization_id() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_authorization_id() callback "
+"(application error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_authorization_id() "
+"(aplikaĵa eraro)"
 
 #: src/error.c:75
-msgid "SASL mechanism needs gsasl_client_callback_authentication_id() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_authentication_id() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_authentication_id() callback "
+"(application error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_authentication_id() "
+"(aplikaĵa eraro)"
 
 #: src/error.c:78
-msgid "SASL mechanism needs gsasl_client_callback_service() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_client_callback_service() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_service() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_client_callback_service() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:81
-msgid "SASL mechanism needs gsasl_server_callback_validate() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_validate() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_validate() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_validate() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:84
-msgid "SASL mechanism needs gsasl_server_callback_cram_md5() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_cram_md5() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_cram_md5() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_cram_md5() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:87
-msgid "SASL mechanism needs gsasl_server_callback_digest_md5() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_digest_md5() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_digest_md5() callback "
+"(application error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_digest_md5() "
+"(aplikaĵa eraro)"
 
 #: src/error.c:90
-msgid "SASL mechanism needs gsasl_server_callback_external() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_external() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_external() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_external() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:93
-msgid "SASL mechanism needs gsasl_server_callback_anonymous() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_anonymous() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_anonymous() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_anonymous() "
+"(aplikaĵa eraro)"
 
 #: src/error.c:96
-msgid "SASL mechanism needs gsasl_server_callback_realm() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_realm() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_realm() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_realm() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:99
-msgid "SASL mechanism needs gsasl_server_callback_securid() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_securid() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_securid() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_securid() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:102
-msgid "SASL mechanism needs gsasl_server_callback_service() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_service() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_service() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_service() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:105
-msgid "SASL mechanism needs gsasl_server_callback_gssapi() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_gssapi() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_gssapi() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_gssapi() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:108
-msgid "SASL mechanism needs gsasl_server_callback_retrieve() callback (application error)"
-msgstr "Mekanismo SASL bezonas eventvokon gsasl_server_callback_retrieve() (aplikaĵa eraro)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_retrieve() callback (application "
+"error)"
+msgstr ""
+"Mekanismo SASL bezonas eventvokon gsasl_server_callback_retrieve() (aplikaĵa "
+"eraro)"
 
 #: src/error.c:111
 msgid "Failed to perform Unicode Normalization on string."
@@ -161,40 +228,83 @@ msgid "Server-side functionality not available in library (application error)"
 msgstr "Servil-flanka funkciado ne disponeblas en biblioteko (aplikaĵa eraro)"
 
 #: src/error.c:128
-msgid "GSSAPI library could not deallocate memory in gss_release_buffer() in SASL library.  This is a serious internal error."
-msgstr "Biblioteko GSSAPI ne povis liberigi memoron en gss_release_buffer() en biblioteko SASL. Tio ĉi estas serioza interna eraro."
+msgid ""
+"GSSAPI library could not deallocate memory in gss_release_buffer() in SASL "
+"library.  This is a serious internal error."
+msgstr ""
+"Biblioteko GSSAPI ne povis liberigi memoron en gss_release_buffer() en "
+"biblioteko SASL. Tio ĉi estas serioza interna eraro."
 
 #: src/error.c:132
-msgid "GSSAPI library could not understand a peer name in gss_import_name() in SASL library.  This is most likely due to incorrect service and/or hostnames."
-msgstr "Biblioteko GSSAPI ne povis kompreni  samtavolanan nomon en gss_import_name() en biblioteko SASL. Tio ĉi okazas ordinare pro malĝusta servo kaj/aŭ gastig-nomoj."
+msgid ""
+"GSSAPI library could not understand a peer name in gss_import_name() in SASL "
+"library.  This is most likely due to incorrect service and/or hostnames."
+msgstr ""
+"Biblioteko GSSAPI ne povis kompreni  samtavolanan nomon en gss_import_name() "
+"en biblioteko SASL. Tio ĉi okazas ordinare pro malĝusta servo kaj/aŭ gastig-"
+"nomoj."
 
 #: src/error.c:136
-msgid "GSSAPI error in client while negotiating security context in gss_init_sec_context() in SASL library.  This is most likely due insufficient credentials or malicious interactions."
-msgstr "Eraro de GSSAPI en kliento dum negocado de sekureca kunteksto en gss_init_sec_context() en biblioteko SASL. Tio ĉi okazas ordinare pro nesufiĉe da legitimaĵoj aŭ pro malicaj interagoj."
+msgid ""
+"GSSAPI error in client while negotiating security context in "
+"gss_init_sec_context() in SASL library.  This is most likely due "
+"insufficient credentials or malicious interactions."
+msgstr ""
+"Eraro de GSSAPI en kliento dum negocado de sekureca kunteksto en "
+"gss_init_sec_context() en biblioteko SASL. Tio ĉi okazas ordinare pro "
+"nesufiĉe da legitimaĵoj aŭ pro malicaj interagoj."
 
 #: src/error.c:140
-msgid "GSSAPI error in server while negotiating security context in gss_accept_sec_context() in SASL library.  This is most likely due insufficient credentials or malicious interactions."
-msgstr "Eraro de GSSAPI en servilo dum negocado de sekureca kunteksto en gss_accept_sec_context() en biblioteko SASL. Tio ĉi okazas ordinare pro nesufiĉe da legitimaĵoj aŭ pro malicaj interagoj."
+msgid ""
+"GSSAPI error in server while negotiating security context in "
+"gss_accept_sec_context() in SASL library.  This is most likely due "
+"insufficient credentials or malicious interactions."
+msgstr ""
+"Eraro de GSSAPI en servilo dum negocado de sekureca kunteksto en "
+"gss_accept_sec_context() en biblioteko SASL. Tio ĉi okazas ordinare pro "
+"nesufiĉe da legitimaĵoj aŭ pro malicaj interagoj."
 
 #: src/error.c:144
-msgid "GSSAPI error while decrypting or decoding data in gss_unwrap() in SASL library.  This is most likely due to data corruption."
-msgstr "Eraro de GSSAPI dum deĉifrado aŭ dekodado de datumaro en gss_unwrap() en biblioteko SASL. Tio ĉi okazas ordinare pro datumara rompiĝo."
+msgid ""
+"GSSAPI error while decrypting or decoding data in gss_unwrap() in SASL "
+"library.  This is most likely due to data corruption."
+msgstr ""
+"Eraro de GSSAPI dum deĉifrado aŭ dekodado de datumaro en gss_unwrap() en "
+"biblioteko SASL. Tio ĉi okazas ordinare pro datumara rompiĝo."
 
 #: src/error.c:147
-msgid "GSSAPI error while encrypting or encoding data in gss_wrap() in SASL library."
-msgstr "Eraro de GSSAPI dum enĉifrado aŭ enkodado de datumaro en gss_wrap() en biblioteko SASL."
+msgid ""
+"GSSAPI error while encrypting or encoding data in gss_wrap() in SASL library."
+msgstr ""
+"Eraro de GSSAPI dum enĉifrado aŭ enkodado de datumaro en gss_wrap() en "
+"biblioteko SASL."
 
 #: src/error.c:150
-msgid "GSSAPI error acquiring credentials in gss_acquire_cred() in SASL library.  This is most likely due to not having the proper Kerberos key available in /etc/krb5.keytab on the server."
-msgstr "Eraro de GSSAPI dum akirado de legitimaĵoj en gss_acquire_cred() en biblioteko SASL. Tio ĉi okazas ordinare pro malhavo de taŭga ŝlosilo Kerberos disponebla en /etc/krb5.keytab en la servilo."
+msgid ""
+"GSSAPI error acquiring credentials in gss_acquire_cred() in SASL library.  "
+"This is most likely due to not having the proper Kerberos key available in /"
+"etc/krb5.keytab on the server."
+msgstr ""
+"Eraro de GSSAPI dum akirado de legitimaĵoj en gss_acquire_cred() en "
+"biblioteko SASL. Tio ĉi okazas ordinare pro malhavo de taŭga ŝlosilo "
+"Kerberos disponebla en /etc/krb5.keytab en la servilo."
 
 #: src/error.c:154
-msgid "GSSAPI error creating a display name denoting the client in gss_display_name() in SASL library.  This is probably because the client supplied bad data."
-msgstr "Eraro de GSSAPI dum kreado de montrig-nomo reprezentanta la kliento en gss_display_name() en biblioteko SASL. Tio ĉi probable okazas ĉar la kliento liveris malĝustan datumaron."
+msgid ""
+"GSSAPI error creating a display name denoting the client in gss_display_name"
+"() in SASL library.  This is probably because the client supplied bad data."
+msgstr ""
+"Eraro de GSSAPI dum kreado de montrig-nomo reprezentanta la kliento en "
+"gss_display_name() en biblioteko SASL. Tio ĉi probable okazas ĉar la kliento "
+"liveris malĝustan datumaron."
 
 #: src/error.c:158
-msgid "Other entity requested integrity or confidentiality protection in GSSAPI mechanism but this is currently not implemented."
-msgstr "Alia estaĵo petis protekton de integreco aŭ sekreteco en mekanismo GSSAPI sed tio ĉi ne estas aktuale realigita."
+msgid ""
+"Other entity requested integrity or confidentiality protection in GSSAPI "
+"mechanism but this is currently not implemented."
+msgstr ""
+"Alia estaĵo petis protekton de integreco aŭ sekreteco en mekanismo GSSAPI "
+"sed tio ĉi ne estas aktuale realigita."
 
 #: src/error.c:161
 msgid "Kerberos V5 initialization failure."
@@ -225,11 +335,13 @@ msgid "Authentication failed because the anonymous token was not provided."
 msgstr "Aŭtentigo malsukcesis ĉar la sennoma ĵetono ne estis provizata."
 
 #: src/error.c:176
-msgid "Authentication failed because the authentication identity was not provided."
+msgid ""
+"Authentication failed because the authentication identity was not provided."
 msgstr "Aŭtentigo malsukcesis ĉar la aŭtentiga identaĵo ne estis provizata."
 
 #: src/error.c:179
-msgid "Authentication failed because the authorization identity was not provided."
+msgid ""
+"Authentication failed because the authorization identity was not provided."
 msgstr "Aŭtentigo malsukcesis ĉar la permesiga identaĵo ne estis provizata."
 
 #: src/error.c:182

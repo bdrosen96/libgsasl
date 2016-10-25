@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libgsasl 1.7.4\n"
 "Report-Msgid-Bugs-To: bug-gsasl@gnu.org\n"
-"POT-Creation-Date: 2012-05-16 00:55+0200\n"
+"POT-Creation-Date: 2016-10-25 07:08-0400\n"
 "PO-Revision-Date: 2012-05-18 12:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
-"Language: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,72 +60,139 @@ msgid "Low-level crypto error in SASL library"
 msgstr "Помилка низькорівневого шифрування у бібліотеці SASL"
 
 #: src/error.c:60
-msgid "SASL mechanism needs gsasl_client_callback_anonymous() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_anonymous() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_anonymous() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_client_callback_anonymous() "
+"(помилка програми)"
 
 #: src/error.c:63
-msgid "SASL mechanism needs gsasl_client_callback_password() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_password() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_password() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_client_callback_password() "
+"(помилка програми)"
 
 #: src/error.c:66
-msgid "SASL mechanism needs gsasl_client_callback_passcode() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_passcode() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_passcode() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_client_callback_passcode() "
+"(помилка програми)"
 
 #: src/error.c:69
-msgid "SASL mechanism needs gsasl_client_callback_pin() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_pin() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_pin() callback (application error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_client_callback_pin() "
+"(помилка програми)"
 
 #: src/error.c:72
-msgid "SASL mechanism needs gsasl_client_callback_authorization_id() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_authorization_id() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_authorization_id() callback "
+"(application error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик "
+"gsasl_client_callback_authorization_id() (помилка програми)"
 
 #: src/error.c:75
-msgid "SASL mechanism needs gsasl_client_callback_authentication_id() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_authentication_id() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_authentication_id() callback "
+"(application error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик "
+"gsasl_client_callback_authentication_id() (помилка програми)"
 
 #: src/error.c:78
-msgid "SASL mechanism needs gsasl_client_callback_service() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_client_callback_service() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_client_callback_service() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_client_callback_service() "
+"(помилка програми)"
 
 #: src/error.c:81
-msgid "SASL mechanism needs gsasl_server_callback_validate() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_validate() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_validate() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_validate() "
+"(помилка програми)"
 
 #: src/error.c:84
-msgid "SASL mechanism needs gsasl_server_callback_cram_md5() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_cram_md5() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_cram_md5() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_cram_md5() "
+"(помилка програми)"
 
 #: src/error.c:87
-msgid "SASL mechanism needs gsasl_server_callback_digest_md5() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_digest_md5() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_digest_md5() callback "
+"(application error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_digest_md5"
+"() (помилка програми)"
 
 #: src/error.c:90
-msgid "SASL mechanism needs gsasl_server_callback_external() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_external() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_external() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_external() "
+"(помилка програми)"
 
 #: src/error.c:93
-msgid "SASL mechanism needs gsasl_server_callback_anonymous() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_anonymous() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_anonymous() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_anonymous() "
+"(помилка програми)"
 
 #: src/error.c:96
-msgid "SASL mechanism needs gsasl_server_callback_realm() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_realm() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_realm() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_realm() "
+"(помилка програми)"
 
 #: src/error.c:99
-msgid "SASL mechanism needs gsasl_server_callback_securid() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_securid() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_securid() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_securid() "
+"(помилка програми)"
 
 #: src/error.c:102
-msgid "SASL mechanism needs gsasl_server_callback_service() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_service() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_service() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_service() "
+"(помилка програми)"
 
 #: src/error.c:105
-msgid "SASL mechanism needs gsasl_server_callback_gssapi() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_gssapi() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_gssapi() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_gssapi() "
+"(помилка програми)"
 
 #: src/error.c:108
-msgid "SASL mechanism needs gsasl_server_callback_retrieve() callback (application error)"
-msgstr "Механізмові SASL потрібен зворотний виклик gsasl_server_callback_retrieve() (помилка програми)"
+msgid ""
+"SASL mechanism needs gsasl_server_callback_retrieve() callback (application "
+"error)"
+msgstr ""
+"Механізмові SASL потрібен зворотний виклик gsasl_server_callback_retrieve() "
+"(помилка програми)"
 
 #: src/error.c:111
 msgid "Failed to perform Unicode Normalization on string."
@@ -145,7 +212,8 @@ msgstr "Помилка під час розпізнавання користув
 
 #: src/error.c:118
 msgid "Cannot get internal library handle (library error)"
-msgstr "Не вдалося отримати внутрішній дескриптор бібліотеки (помилка бібліотеки)"
+msgstr ""
+"Не вдалося отримати внутрішній дескриптор бібліотеки (помилка бібліотеки)"
 
 #: src/error.c:119
 msgid "Integrity error in application payload"
@@ -157,47 +225,93 @@ msgstr "Вичерпано перелік доступних областей (�
 
 #: src/error.c:122
 msgid "Client-side functionality not available in library (application error)"
-msgstr "Функціональні можливості клієнта бібліотекою не надаються (помилка програми)"
+msgstr ""
+"Функціональні можливості клієнта бібліотекою не надаються (помилка програми)"
 
 #: src/error.c:125
 msgid "Server-side functionality not available in library (application error)"
-msgstr "Функціональні можливості сервера бібліотекою не надаються (помилка програми)"
+msgstr ""
+"Функціональні можливості сервера бібліотекою не надаються (помилка програми)"
 
 #: src/error.c:128
-msgid "GSSAPI library could not deallocate memory in gss_release_buffer() in SASL library.  This is a serious internal error."
-msgstr "Бібліотеці GSSAPI не вдалося звільнити пам’ять у gss_release_buffer() у бібліотеці SASL. Це серйозна внутрішня помилка."
+msgid ""
+"GSSAPI library could not deallocate memory in gss_release_buffer() in SASL "
+"library.  This is a serious internal error."
+msgstr ""
+"Бібліотеці GSSAPI не вдалося звільнити пам’ять у gss_release_buffer() у "
+"бібліотеці SASL. Це серйозна внутрішня помилка."
 
 #: src/error.c:132
-msgid "GSSAPI library could not understand a peer name in gss_import_name() in SASL library.  This is most likely due to incorrect service and/or hostnames."
-msgstr "Бібліотеці GSSAPI не вдалося розібрати назву вузла у функції gss_import_name() бібліотеки SASL. Найімовірнішою причиною є помилкова назва служби або вузла."
+msgid ""
+"GSSAPI library could not understand a peer name in gss_import_name() in SASL "
+"library.  This is most likely due to incorrect service and/or hostnames."
+msgstr ""
+"Бібліотеці GSSAPI не вдалося розібрати назву вузла у функції gss_import_name"
+"() бібліотеки SASL. Найімовірнішою причиною є помилкова назва служби або "
+"вузла."
 
 #: src/error.c:136
-msgid "GSSAPI error in client while negotiating security context in gss_init_sec_context() in SASL library.  This is most likely due insufficient credentials or malicious interactions."
-msgstr "Помилка GSSAPI у клієнтській програмі під час узгодження контексту захисту у функції gss_init_sec_context() бібліотеки SASL. Найімовірнішою причиною є недостатні реєстраційні дані або зловмисне втручання у роботу."
+msgid ""
+"GSSAPI error in client while negotiating security context in "
+"gss_init_sec_context() in SASL library.  This is most likely due "
+"insufficient credentials or malicious interactions."
+msgstr ""
+"Помилка GSSAPI у клієнтській програмі під час узгодження контексту захисту у "
+"функції gss_init_sec_context() бібліотеки SASL. Найімовірнішою причиною є "
+"недостатні реєстраційні дані або зловмисне втручання у роботу."
 
 #: src/error.c:140
-msgid "GSSAPI error in server while negotiating security context in gss_accept_sec_context() in SASL library.  This is most likely due insufficient credentials or malicious interactions."
-msgstr "Помилка GSSAPI у серверній програмі під час узгодження контексту захисту у функції gss_accept_sec_context() бібліотеки SASL. Найімовірнішою причиною є недостатні реєстраційні дані або зловмисне втручання у роботу."
+msgid ""
+"GSSAPI error in server while negotiating security context in "
+"gss_accept_sec_context() in SASL library.  This is most likely due "
+"insufficient credentials or malicious interactions."
+msgstr ""
+"Помилка GSSAPI у серверній програмі під час узгодження контексту захисту у "
+"функції gss_accept_sec_context() бібліотеки SASL. Найімовірнішою причиною є "
+"недостатні реєстраційні дані або зловмисне втручання у роботу."
 
 #: src/error.c:144
-msgid "GSSAPI error while decrypting or decoding data in gss_unwrap() in SASL library.  This is most likely due to data corruption."
-msgstr "Помилка GSSAPI під час розшифрування або декодування даних у функції gss_unwrap() бібліотеки SASL. Найімовірнішою причиною є пошкодження даних."
+msgid ""
+"GSSAPI error while decrypting or decoding data in gss_unwrap() in SASL "
+"library.  This is most likely due to data corruption."
+msgstr ""
+"Помилка GSSAPI під час розшифрування або декодування даних у функції "
+"gss_unwrap() бібліотеки SASL. Найімовірнішою причиною є пошкодження даних."
 
 #: src/error.c:147
-msgid "GSSAPI error while encrypting or encoding data in gss_wrap() in SASL library."
-msgstr "Помилка GSSAPI під час спроби шифрування або кодування даних у функції gss_wrap() бібліотеки SASL."
+msgid ""
+"GSSAPI error while encrypting or encoding data in gss_wrap() in SASL library."
+msgstr ""
+"Помилка GSSAPI під час спроби шифрування або кодування даних у функції "
+"gss_wrap() бібліотеки SASL."
 
 #: src/error.c:150
-msgid "GSSAPI error acquiring credentials in gss_acquire_cred() in SASL library.  This is most likely due to not having the proper Kerberos key available in /etc/krb5.keytab on the server."
-msgstr "Помилка GSSAPI під час спроби отримання реєстраційних даних у функції gss_acquire_cred() бібліотеки SASL. Найімовірнішою причиною є нестача належного ключа Kerberos у /etc/krb5.keytab на сервері."
+msgid ""
+"GSSAPI error acquiring credentials in gss_acquire_cred() in SASL library.  "
+"This is most likely due to not having the proper Kerberos key available in /"
+"etc/krb5.keytab on the server."
+msgstr ""
+"Помилка GSSAPI під час спроби отримання реєстраційних даних у функції "
+"gss_acquire_cred() бібліотеки SASL. Найімовірнішою причиною є нестача "
+"належного ключа Kerberos у /etc/krb5.keytab на сервері."
 
 #: src/error.c:154
-msgid "GSSAPI error creating a display name denoting the client in gss_display_name() in SASL library.  This is probably because the client supplied bad data."
-msgstr "Помилка GSSAPI під час спроби створення назви клієнта для показу у функції gss_display_name() бібліотеки SASL. Ймовірною причиною є надання клієнтською частиною помилкових даних."
+msgid ""
+"GSSAPI error creating a display name denoting the client in gss_display_name"
+"() in SASL library.  This is probably because the client supplied bad data."
+msgstr ""
+"Помилка GSSAPI під час спроби створення назви клієнта для показу у функції "
+"gss_display_name() бібліотеки SASL. Ймовірною причиною є надання клієнтською "
+"частиною помилкових даних."
 
 #: src/error.c:158
-msgid "Other entity requested integrity or confidentiality protection in GSSAPI mechanism but this is currently not implemented."
-msgstr "Надійшов запит від іншого екземпляра програми щодо перевірки цілісності або захисту конфіденційності за допомогою механізмів GSSAPI. Можливість виконання декількох запитів одночасно ще не реалізовано."
+msgid ""
+"Other entity requested integrity or confidentiality protection in GSSAPI "
+"mechanism but this is currently not implemented."
+msgstr ""
+"Надійшов запит від іншого екземпляра програми щодо перевірки цілісності або "
+"захисту конфіденційності за допомогою механізмів GSSAPI. Можливість "
+"виконання декількох запитів одночасно ще не реалізовано."
 
 #: src/error.c:161
 msgid "Kerberos V5 initialization failure."
@@ -228,11 +342,13 @@ msgid "Authentication failed because the anonymous token was not provided."
 msgstr "Помилка розпізнавання через ненадання анонімної лексеми."
 
 #: src/error.c:176
-msgid "Authentication failed because the authentication identity was not provided."
+msgid ""
+"Authentication failed because the authentication identity was not provided."
 msgstr "Помилка розпізнавання через ненадання назви профілю розпізнавання."
 
 #: src/error.c:179
-msgid "Authentication failed because the authorization identity was not provided."
+msgid ""
+"Authentication failed because the authorization identity was not provided."
 msgstr "Помилка розпізнавання через ненадання назви профілю уповноваження."
 
 #: src/error.c:182
@@ -245,7 +361,9 @@ msgstr "Помилка розпізнавання через ненадання 
 
 #: src/error.c:186
 msgid "Authentication failed because the pin code was not provided."
-msgstr "Помилка розпізнавання через ненадання особистого ідентифікаційного коду (PIN)."
+msgstr ""
+"Помилка розпізнавання через ненадання особистого ідентифікаційного коду "
+"(PIN)."
 
 #: src/error.c:188
 msgid "Authentication failed because the service name was not provided."
@@ -277,19 +395,23 @@ msgstr "Помилка GSSAPI під час звільнення набору OI
 
 #: src/error.c:202
 msgid "Authentication failed because a tls-unique CB was not provided."
-msgstr "Помилка розпізнавання через ненадання унікальної для TLS прив’язки до каналу."
+msgstr ""
+"Помилка розпізнавання через ненадання унікальної для TLS прив’язки до каналу."
 
 #: src/error.c:204
 msgid "Callback failed to provide SAML20 IdP identifier."
-msgstr "У відповідь на зворотний виклик не повернуто ідентифікатора IdP SAML20 IdP."
+msgstr ""
+"У відповідь на зворотний виклик не повернуто ідентифікатора IdP SAML20 IdP."
 
 #: src/error.c:206
 msgid "Callback failed to provide SAML20 redirect URL."
-msgstr "У відповідь на зворотний виклик не отримано адреси переспрямування SAML20."
+msgstr ""
+"У відповідь на зворотний виклик не отримано адреси переспрямування SAML20."
 
 #: src/error.c:208
 msgid "Callback failed to provide OPENID20 redirect URL."
-msgstr "У відповідь на зворотний виклик не отримано адреси переспрямування OPENID20."
+msgstr ""
+"У відповідь на зворотний виклик не отримано адреси переспрямування OPENID20."
 
 #: src/error.c:230
 msgid "Libgsasl unknown error"
