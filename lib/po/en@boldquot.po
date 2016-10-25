@@ -1,7 +1,7 @@
 # English translations for libgsasl package.
-# Copyright (C) 2012 Simon Josefsson
+# Copyright (C) 2016 Simon Josefsson
 # This file is distributed under the same license as the libgsasl package.
-# Automatically generated, 2012.
+# Automatically generated, 2016.
 #
 # All this catalog "translates" are quotation characters.
 # The msgids must be ASCII and therefore cannot contain real quotation
@@ -30,10 +30,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libgsasl 1.8.0\n"
+"Project-Id-Version: libgsasl 1.8.1\n"
 "Report-Msgid-Bugs-To: bug-gsasl@gnu.org\n"
-"POT-Creation-Date: 2012-05-28 19:14+0200\n"
-"PO-Revision-Date: 2012-05-28 19:14+0200\n"
+"POT-Creation-Date: 2016-10-25 07:08-0400\n"
+"PO-Revision-Date: 2016-10-25 07:08-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: en@boldquot\n"

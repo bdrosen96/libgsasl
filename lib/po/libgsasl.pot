@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: libgsasl 1.8.0\n"
+"Project-Id-Version: libgsasl 1.8.1\n"
 "Report-Msgid-Bugs-To: bug-gsasl@gnu.org\n"
-"POT-Creation-Date: 2012-05-28 19:14+0200\n"
+"POT-Creation-Date: 2016-10-25 07:08-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
