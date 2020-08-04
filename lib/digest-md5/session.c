@@ -1,6 +1,7 @@
 /* session.c --- Data integrity/privacy protection of DIGEST-MD5.
  * Copyright (C) 2002-2012 Simon Josefsson
- *
+ * Copyright © 2020 Nokia
+ * 
  * This file is part of GNU SASL Library.
  *
  * GNU SASL Library is free software; you can redistribute it and/or
@@ -82,19 +83,19 @@ int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
             unsigned char keybuf[8];
             slidebits(keybuf, my_key);
 
-            des_key_sched((des_cblock *) keybuf, state->keysched_encrypt);
+            DES_key_sched((DES_cblock *) keybuf, &state->keysched_encrypt);
 
             slidebits(keybuf, my_key + 7);
 
-            des_key_sched((des_cblock *) keybuf, state->keysched2_encrypt);
+            DES_key_sched((DES_cblock *) keybuf, &state->keysched2_encrypt);
             memcpy(state->ivec_encrypt, ((char *) my_key) + 8, 8);
 
             slidebits(keybuf, peer_key);
-            des_key_sched((des_cblock *) keybuf, state->keysched_decrypt);
+            DES_key_sched((DES_cblock *) keybuf, &state->keysched_decrypt);
 
             slidebits(keybuf, peer_key + 7);
 
-            des_key_sched((des_cblock *) keybuf, state->keysched2_decrypt);
+            DES_key_sched((DES_cblock *) keybuf, &state->keysched2_decrypt);
 
 
             memcpy(state->ivec_decrypt, ((char *) peer_key) + 8, 8);
@@ -105,12 +106,12 @@ int digest_md5_crypt_init(_Gsasl_digest_md5_encrypt_state *state)
             unsigned char keybuf[8];
             slidebits(keybuf, my_key);
 
-            des_key_sched((des_cblock *) keybuf, state->keysched_encrypt);
+            DES_key_sched((DES_cblock *) keybuf, &state->keysched_encrypt);
 
             memcpy(state->ivec_encrypt, ((char *) my_key) + 8, 8);
 
             slidebits(keybuf, peer_key);
-            des_key_sched((des_cblock *) keybuf, state->keysched_decrypt);
+            DES_key_sched((DES_cblock *) keybuf, &state->keysched_decrypt);
 
             memcpy(state->ivec_decrypt, ((char *) peer_key) + 8, 8);
          }
@@ -132,18 +133,18 @@ void do_encrypt(_Gsasl_digest_md5_encrypt_state *state, const char* to_encrypt, 
      } else if (state->cipher == DIGEST_MD5_CIPHER_RC4) {
         RC4(&state->rc4_key_encrypt, encrypt_length, to_encrypt, encrypted);
      } else if (state->cipher == DIGEST_MD5_CIPHER_3DES) {
-            des_ede2_cbc_encrypt((void *) to_encrypt,
+            DES_ede2_cbc_encrypt((void *) to_encrypt,
 			 (void *) encrypted,
 			 encrypt_length,
-			 state->keysched_encrypt,
-			 state->keysched2_encrypt,
+			 &state->keysched_encrypt,
+			 &state->keysched2_encrypt,
 			 &state->ivec_encrypt,
 			 DES_ENCRYPT);
      } else if (state->cipher == DIGEST_MD5_CIPHER_DES) {
-            des_ncbc_encrypt((void *) to_encrypt,
+            DES_ncbc_encrypt((void *) to_encrypt,
                     (void *) encrypted,
                     encrypt_length,
-                    state->keysched_encrypt,
+                    &state->keysched_encrypt,
                     &state->ivec_encrypt,
                     DES_ENCRYPT);
      }
@@ -157,18 +158,18 @@ void do_decrypt(_Gsasl_digest_md5_encrypt_state *state, const char* to_decrypt, 
      } else if (state->cipher == DIGEST_MD5_CIPHER_RC4) {
         RC4(&state->rc4_key_decrypt, decrypt_length, to_decrypt, decrypted);
      } else if (state->cipher == DIGEST_MD5_CIPHER_3DES) {
-        des_ede2_cbc_encrypt((void *) to_decrypt,
+        DES_ede2_cbc_encrypt((void *) to_decrypt,
 			 (void *) decrypted,
 			 decrypt_length,
-			 state->keysched_decrypt,
-			 state->keysched2_decrypt,
+			 &state->keysched_decrypt,
+			 &state->keysched2_decrypt,
 			 &state->ivec_decrypt,
 			 DES_DECRYPT);
      } else if (state->cipher == DIGEST_MD5_CIPHER_DES) {
-        des_ncbc_encrypt((void *) to_decrypt,
+        DES_ncbc_encrypt((void *) to_decrypt,
                     (void *) decrypted,
                     decrypt_length,
-                    state->keysched_decrypt,
+                    &state->keysched_decrypt,
                     &state->ivec_decrypt,
                     DES_DECRYPT);
      }
