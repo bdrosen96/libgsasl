@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 # Copyright (C) 2002-2012 Simon Josefsson
+# Copyright © 2020 Nokia
 #
 # This file is part of GNU SASL.
 #
@@ -22,7 +23,7 @@ AC_INIT([GNU SASL], [1.8.1], [bug-gsasl@gnu.org], [gsasl])
 AC_CONFIG_AUX_DIR([lib/build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 
-AM_INIT_AUTOMAKE([1.10 -Wall -Werror -Wno-override])
+AM_INIT_AUTOMAKE([1.14 -Wall -Werror -Wno-override])
 AM_SILENT_RULES([yes])
 AC_CONFIG_HEADERS([config.h])
 
@@ -30,6 +31,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 gl_EARLY
 AC_LIBTOOL_WIN32_DLL
+AM_PROG_AR
 AC_PROG_LIBTOOL
 AM_MISSING_PROG(PERL, perl, $missing_dir)
 AM_MISSING_PROG(HELP2MAN, help2man, $missing_dir)
@@ -38,7 +40,7 @@ AM_MISSING_PROG(EPSTOPDF, epstopdf, $missing_dir)
 
 # Internationalization.
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION([0.18.1])
+AM_GNU_GETTEXT_VERSION([0.19])
 
 # Checks for header files.
 AC_CHECK_HEADERS(pwd.h)

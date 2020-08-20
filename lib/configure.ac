@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 # Copyright (C) 2002-2012 Simon Josefsson
+# Copyright © 2020 Nokia
 #
 # This file is part of GNU SASL Library.
 #
@@ -36,7 +37,7 @@ AC_SUBST(LT_AGE, 9)
 DLL_VERSION=`expr ${LT_CURRENT} - ${LT_AGE}`
 AC_SUBST(DLL_VERSION)
 
-AM_INIT_AUTOMAKE([1.10 -Wall -Werror])
+AM_INIT_AUTOMAKE([1.14 -Wall -Werror])
 AM_SILENT_RULES([yes])
 AC_CONFIG_HEADERS([config.h])
 
@@ -44,11 +45,12 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 gl_EARLY
 AC_LIBTOOL_WIN32_DLL
+AM_PROG_AR
 AC_PROG_LIBTOOL
 
 # Internationalization.
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION([0.18.1])
+AM_GNU_GETTEXT_VERSION([0.19])
 
 # ANONYMOUS
 AC_ARG_ENABLE(anonymous,
