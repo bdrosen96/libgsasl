@@ -1,6 +1,10 @@
 # Visual Studio Code files
 .vscode/
 
+# Ignore test-results
+**/*.trs
+**/*.log
+
 # Auto generated docs
 **/INSTALL
 **/ChangeLog

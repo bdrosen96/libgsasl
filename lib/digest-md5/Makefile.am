@@ -1,4 +1,5 @@
 # Copyright (C) 2002-2012 Simon Josefsson
+# Copyright © 2020 Nokia
 #
 # This file is part of GNU SASL Library.
 #
@@ -35,6 +36,9 @@ libgsasl_digest_md5_la_SOURCES = digest-md5.h mechinfo.c \
 	free.h free.c \
 	nonascii.h nonascii.c \
 	qop.h qop.c
+
+# With the changes to digest-md5, OpenSSL's crypto is being used.
+libgsasl_digest_md5_la_LDFLAGS = -lcrypto
 
 if CLIENT
 libgsasl_digest_md5_la_SOURCES += client.c
