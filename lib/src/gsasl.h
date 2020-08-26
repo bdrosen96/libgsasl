@@ -5,8 +5,10 @@
  *
  * GNU SASL Library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
- * as published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
+ * and the dual OpenSSL and SSLeay license. The terms of the GNU Lesser
+ * General Public License are as published by the Free Software Foun-
+ * dation; either version 2.1 of the License, or (at your option) any
+ * later version.
  *
  * GNU SASL Library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -51,7 +53,7 @@ extern "C"
    * version number.  Used together with gsasl_check_version() to
    * verify header file and run-time library consistency.
    */
-#define GSASL_VERSION "1.8.1"
+#define GSASL_VERSION "1.8.2"
 
   /**
    * GSASL_VERSION_MAJOR
@@ -84,7 +86,7 @@ extern "C"
    *
    * Since: 1.1
    */
-#define GSASL_VERSION_PATCH 1
+#define GSASL_VERSION_PATCH 2
 
   /**
    * GSASL_VERSION_NUMBER
@@ -95,7 +97,7 @@ extern "C"
    *
    * Since: 1.1
    */
-#define GSASL_VERSION_NUMBER 0x010801
+#define GSASL_VERSION_NUMBER 0x010802
 
   /* RFC 2222: SASL mechanisms are named by strings, from 1 to 20
    * characters in length, consisting of upper-case letters, digits,

@@ -6,8 +6,10 @@ The GNU SASL Library is a library that implements the Simple
 Authentication and Security Layer (SASL) framework and some plugins.
 
 The GNU SASL Library is licensed under the GNU Lesser General Public
-License (LGPL) version 2.1 (or later).  See the file COPYING.LIB.  The
-GNU project typically uses the GNU General Public License (GPL) for
+License (LGPL) version 2.1 (or later) AND the dual OpenSSL and SSLeay
+license.  See the file COPYING.LIB.
+
+The GNU project typically uses the GNU General Public License (GPL) for
 libraries, and not the LGPL, but for this project we decided that we
 would get more help from the community if we used the LGPLv2.1+, as
 other free SASL implementations exists.  See also

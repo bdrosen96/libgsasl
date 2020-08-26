@@ -1,13 +1,16 @@
 dnl Process this file with autoconf to produce a configure script.
 
 # Copyright (C) 2002-2012 Simon Josefsson
+# Copyright © 2020 Nokia
 #
 # This file is part of GNU SASL Library.
 #
 # GNU SASL Library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public License
-# as published by the Free Software Foundation; either version 2.1 of
-# the License, or (at your option) any later version.
+# and the dual OpenSSL and SSLeay license. The terms of the GNU Lesser
+# General Public License are as published by the Free Software Foun-
+# dation; either version 2.1 of the License, or (at your option) any
+# later version.
 #
 # GNU SASL Library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -20,7 +23,7 @@ dnl Process this file with autoconf to produce a configure script.
 # MA 02110-1301, USA.
 
 AC_PREREQ(2.61)
-AC_INIT([libgsasl], [1.8.1], [bug-gsasl@gnu.org])
+AC_INIT([libgsasl], [1.8.2], [bug-gsasl@gnu.org])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -36,7 +39,7 @@ AC_SUBST(LT_AGE, 9)
 DLL_VERSION=`expr ${LT_CURRENT} - ${LT_AGE}`
 AC_SUBST(DLL_VERSION)
 
-AM_INIT_AUTOMAKE([1.10 -Wall -Werror])
+AM_INIT_AUTOMAKE([1.14 -Wall -Werror])
 AM_SILENT_RULES([yes])
 AC_CONFIG_HEADERS([config.h])
 
@@ -44,11 +47,12 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 gl_EARLY
 AC_LIBTOOL_WIN32_DLL
+AM_PROG_AR
 AC_PROG_LIBTOOL
 
 # Internationalization.
 AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION([0.18.1])
+AM_GNU_GETTEXT_VERSION([0.19])
 
 # ANONYMOUS
 AC_ARG_ENABLE(anonymous,

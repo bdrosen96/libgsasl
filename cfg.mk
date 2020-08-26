@@ -49,10 +49,8 @@ autoreconf:
 	for f in po/*.po.in lib/po/*.po.in; do \
 		cp $$f `echo $$f | sed 's/.in//'`; \
 	done
-	mv $(_build-aux)/config.rpath $(_build-aux)/config.rpath-
 	touch ChangeLog lib/ChangeLog
 	test -f ./configure || autoreconf --install
-	mv $(_build-aux)/config.rpath- $(_build-aux)/config.rpath
 
 update-po:
 	$(MAKE) -C lib refresh-po PACKAGE=libgsasl

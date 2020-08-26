@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Simon Josefsson
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the libgsasl package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: libgsasl 1.8.1\n"
+"Project-Id-Version: libgsasl 1.8.2\n"
 "Report-Msgid-Bugs-To: bug-gsasl@gnu.org\n"
-"POT-Creation-Date: 2016-10-25 07:08-0400\n"
+"POT-Creation-Date: 2020-08-25 18:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -240,8 +240,9 @@ msgstr ""
 
 #: src/error.c:154
 msgid ""
-"GSSAPI error creating a display name denoting the client in gss_display_name"
-"() in SASL library.  This is probably because the client supplied bad data."
+"GSSAPI error creating a display name denoting the client in "
+"gss_display_name() in SASL library.  This is probably because the client "
+"supplied bad data."
 msgstr ""
 
 #: src/error.c:158
